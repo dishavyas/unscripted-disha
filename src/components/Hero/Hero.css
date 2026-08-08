@@ -1,0 +1,1115 @@
+/* =========================================
+   HERO SECTION
+========================================= */
+
+/* .hero {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 120px 6% 80px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #160b35 0%,
+      #281548 55%,
+      #120923 100%
+    );
+
+  color:white;
+
+} */
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 60px;
+
+  padding: 130px 7% 80px;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #160b35 0%,
+    #281548 55%,
+    #120923 100%
+  );
+
+  color: white;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.hero-content{
+    position:relative;
+    z-index:20;
+}
+
+
+/* =========================================
+   BACKGROUND GLOWS
+========================================= */
+
+
+.orange-glow {
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  background:#ff7048;
+
+  filter:blur(160px);
+
+  opacity:.18;
+
+  right:10%;
+  top:20%;
+
+}
+
+
+
+.purple-glow {
+
+  position:absolute;
+
+  width:600px;
+  height:600px;
+
+  background:#703cff;
+
+  filter:blur(180px);
+
+  opacity:.25;
+
+  left:-20%;
+  bottom:-20%;
+
+}
+
+
+
+/* =========================================
+   PARALLAX LAYERS
+========================================= */
+
+
+.hero-stars,
+.layer {
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+  z-index: 1;
+
+}
+
+
+
+.hero-stars {
+
+  background:
+  url("/images/stars.png")
+  center/cover no-repeat;
+
+  opacity:.35;
+
+  animation:
+  starsMove
+  80s
+  linear
+  infinite;
+    
+
+
+}
+
+
+
+
+.clouds {
+
+
+background:
+url("/images/clouds.png")
+bottom center / cover no-repeat;
+
+
+opacity:.35;
+  z-index: 2;
+
+
+animation:
+cloudMove
+45s
+linear
+infinite;
+
+
+z-index:2;
+
+
+}
+
+
+
+.mountains-back {
+
+
+background:
+url("/images/mountains-back.png")
+bottom center / cover no-repeat;
+
+
+opacity:.55;
+
+  z-index: 3;
+
+animation:
+mountainBack
+35s
+ease-in-out
+infinite alternate;
+
+
+z-index:3;
+
+
+}
+
+
+
+
+.mountains {
+
+
+background:
+url("/images/mountains-front.png")
+bottom center / cover no-repeat;
+
+
+z-index:4;
+
+
+animation:
+mountainFront
+18s
+ease-in-out
+infinite alternate;
+
+
+}
+
+
+
+.grass {
+
+
+background:
+linear-gradient(
+transparent,
+#120923
+);
+
+
+z-index:5;
+
+
+}
+
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+
+@keyframes starsMove {
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(80px);
+}
+
+}
+
+
+
+@keyframes cloudMove {
+
+
+from{
+transform:translateX(-5%);
+}
+
+
+to{
+transform:translateX(5%);
+}
+
+
+}
+
+
+
+@keyframes mountainBack {
+
+
+from{
+transform:translateY(0);
+}
+
+
+to{
+transform:translateY(20px);
+}
+
+
+}
+
+
+
+@keyframes mountainFront {
+
+
+from{
+transform:translateY(0);
+}
+
+
+to{
+transform:translateY(12px);
+}
+
+
+}
+
+
+
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+
+.hero-content{
+    flex:1;
+    max-width:650px;
+    z-index:20;
+
+
+
+}
+
+
+
+.hero-badge {
+
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+
+width:max-content;
+
+
+padding:
+12px 22px;
+
+
+border-radius:50px;
+
+
+background:
+rgba(255,255,255,.08);
+
+
+border:
+1px solid rgba(255,255,255,.2);
+
+
+backdrop-filter:blur(15px);
+
+
+font-size:13px;
+
+
+font-weight:800;
+
+
+letter-spacing:2px;
+
+
+}
+
+
+
+.badge-dot {
+
+
+width:10px;
+height:10px;
+
+
+background:#ff7048;
+
+
+border-radius:50%;
+
+
+box-shadow:
+0 0 15px #ff7048;
+
+
+}
+
+
+
+
+.hero-small-title {
+
+
+margin-top:45px;
+
+
+font-size:15px;
+
+
+letter-spacing:12px;
+
+
+font-weight:700;
+
+
+opacity:.8;
+
+
+}
+
+
+
+.hero h1 {
+
+
+font-size:
+clamp(70px,9vw,140px);
+
+
+line-height:.85;
+
+
+letter-spacing:-6px;
+
+
+font-weight:900;
+
+
+margin:25px 0;
+
+
+}
+
+
+
+.hero h1 span {
+
+
+color:#ff7048;
+
+
+}
+
+
+
+.hero-description {
+
+
+font-size:20px;
+
+
+line-height:1.6;
+
+
+max-width:620px;
+
+
+color:
+rgba(255,255,255,.75);
+
+
+}
+
+
+
+/* =========================================
+ BUTTONS
+========================================= */
+
+
+.hero-buttons {
+
+
+display:flex;
+
+gap:20px;
+
+margin-top:40px;
+
+
+}
+
+
+
+.hero-order-button {
+
+
+background:#20d96b!important;
+
+
+border-radius:50px!important;
+
+
+padding:
+15px 30px!important;
+
+
+font-weight:800!important;
+
+
+}
+
+
+
+
+.hero-portfolio-button {
+
+
+border:
+1px solid rgba(255,255,255,.4)!important;
+
+
+color:white!important;
+
+
+border-radius:50px!important;
+
+
+padding:
+15px 30px!important;
+
+
+}
+
+
+
+
+/* =========================================
+ STATS
+========================================= */
+
+
+.hero-stats {
+
+
+display:flex;
+
+
+gap:50px;
+
+
+margin-top:70px;
+
+
+}
+
+
+
+.hero-stats div {
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+}
+
+
+
+.hero-stats strong {
+
+
+font-size:22px;
+
+
+}
+
+
+
+.hero-stats span {
+
+
+font-size:12px;
+
+
+opacity:.5;
+
+
+letter-spacing:2px;
+
+
+}
+
+
+
+/* =========================================
+ PHONE AREA
+========================================= */
+.phone-area{
+    position:absolute;
+
+    top:50%;
+    right:5%;
+
+    transform:translateY(-50%);
+
+    width:450px;
+    height:700px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:100;
+}
+
+
+/* PHONE */
+
+
+.phone{
+
+    position:relative;
+
+    width:340px;
+    height:680px;
+
+    border-radius:42px;
+
+    overflow:hidden;
+
+    background:#000;
+
+    border:8px solid #1d1d1d;
+
+    z-index:120;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.5),
+        0 0 60px rgba(255,112,72,.15);
+
+    animation:phoneFloat 5s ease-in-out infinite;
+
+}
+
+
+
+.phone video {
+
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+
+}
+
+
+
+.phone-notch {
+
+
+position:absolute;
+
+top:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+width:120px;
+
+height:30px;
+
+
+background:black;
+
+
+border-radius:30px;
+
+
+z-index:5;
+
+
+}
+
+
+
+@keyframes phoneFloat {
+
+
+50%{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+
+
+/* =========================================
+ FLOATING CARDS
+========================================= */
+
+
+.floating-card,
+.price-card{
+
+    position:absolute;
+    width: 250px;
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px 14px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.14);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    z-index:140;
+
+}
+
+
+
+.floating-icon {
+
+
+width:55px;
+
+height:40px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+/* background:#fff1e8; */
+
+
+color:#ff7048;
+
+
+border-radius:15px;
+
+
+}
+
+
+
+.ai-reels{
+
+    top:22%;
+
+    left:-90px;
+    font-size: 15px;
+
+}
+
+.hindi-content{
+
+    top:48%;
+    font-size: 15px;
+
+    left:-120px;
+
+}
+
+.global-stories{
+
+    bottom:12%;
+
+    left:-90px;
+
+}
+
+.reel-preview-card{
+
+    top:5%;
+    font-size: 15px;
+
+    right:-110px;
+
+}
+
+.price-card{
+
+    bottom:8%;
+    font-size: 15px;
+
+    right:-70px;
+
+}
+
+
+.price-card strong {
+
+font-size:15px;
+
+}
+
+
+
+.price-card span {
+
+
+display:block;
+
+font-size:12px;
+
+opacity:.6;
+
+
+}
+
+
+
+
+/* =========================================
+ SCROLL
+========================================= */
+
+
+.scroll-indicator {
+
+
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+z-index:20;
+
+
+font-size:11px;
+
+letter-spacing:4px;
+
+
+opacity:.6;
+
+
+}
+
+
+
+/* =========================================
+ COUNTER
+========================================= */
+
+
+.hero-counter {
+
+
+position:absolute;
+
+bottom:40px;
+
+right:60px;
+
+
+z-index:20;
+
+
+font-size:30px;
+
+font-weight:900;
+
+
+}
+
+
+
+
+/* =========================================
+ TABLET
+========================================= */
+
+
+@media(max-width:1100px){
+
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+padding-top:140px;
+}
+
+.hero-content{
+
+max-width:100%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.phone-area{
+
+margin-top:60px;
+
+width:100%;
+
+min-height:600px;
+    position:relative;
+
+    right:auto;
+
+    top:auto;
+
+    transform:none;
+
+    margin-top:60px;
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-stats{
+
+justify-content:center;
+
+}
+
+.hero h1{
+
+font-size:clamp(56px,8vw,130px);
+
+line-height:.9;
+
+letter-spacing:-4px;
+
+}
+
+}
+
+
+
+/* =========================================
+ MOBILE
+========================================= */
+
+
+@media (max-width:768px){
+
+.hero{
+
+padding:110px 22px 70px;
+
+gap:40px;
+
+}
+
+.hero h1{
+
+font-size:clamp(46px,14vw,70px);
+
+letter-spacing:-2px;
+
+}
+
+.hero-small-title{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+}
+
+.hero-description{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+width:100%;
+
+}
+
+.hero-buttons .MuiButton-root{
+
+width:100%;
+
+}
+
+.hero-stats{
+
+justify-content:center;
+
+gap:25px;
+
+}
+
+.phone{
+ height:520px;
+width:260px;
+
+}
+
+.floating-card{
+
+padding:14px 18px;
+
+transform:scale(.85);
+
+}
+
+.ai-reels{
+
+left:-20px;
+
+}
+
+.hindi-content{
+
+left:-6%;
+
+}
+
+.global-stories{
+
+left: -20px;
+
+}
+
+.reel-preview-card{
+
+right:-20px;
+
+}
+
+.price-card{
+
+display: none;
+}
+
+.scroll-indicator,
+
+.hero-counter{
+
+display:none;
+
+}
+
+}
+@media (max-width:480px){
+
+.phone{
+
+width:220px;
+
+}
+
+.floating-card{
+
+display:none;
+
+}
+
+.price-card{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:44px;
+
+}
+
+.hero-description{
+
+font-size:15px;
+
+}
+
+.hero-badge{
+
+font-size:11px;
+
+padding:10px 18px;
+
+}
+
+}

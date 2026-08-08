@@ -1,0 +1,585 @@
+/* ==========================================
+   PACKAGES PAGE
+========================================== */
+
+.packages-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px 7% 100px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(112, 60, 255, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #160b35 0%,
+      #241342 55%,
+      #100820 100%
+    );
+
+  color: #fff;
+}
+
+
+/* ==========================================
+   GLOWS
+========================================== */
+
+.packages-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(150px);
+}
+
+.glow-one {
+  width: 450px;
+  height: 450px;
+
+  top: 10%;
+  left: -150px;
+
+  background: #703cff;
+  opacity: 0.18;
+}
+
+.glow-two {
+  width: 400px;
+  height: 400px;
+
+  right: -100px;
+  bottom: 10%;
+
+  background: #ff7048;
+  opacity: 0.12;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.packages-header {
+  position: relative;
+  z-index: 2;
+
+  max-width: 850px;
+  margin: 0 auto 70px;
+
+  text-align: center;
+}
+
+.packages-back {
+  display: inline-block;
+
+  margin-bottom: 40px;
+
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: .3s;
+}
+
+.packages-back:hover {
+  color: #ff7048;
+}
+
+
+.packages-label {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: #ff7048;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+
+.packages-header h1 {
+  margin: 0;
+
+  font-size: clamp(60px, 8vw, 110px);
+
+  line-height: .9;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+}
+
+
+.packages-header p {
+  max-width: 650px;
+
+  margin: 30px auto 0;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   PACKAGE GRID
+========================================== */
+
+.packages-grid {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.package-card {
+  position: relative;
+
+  padding: 40px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.055)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.16);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    rgba(255,112,72,.6);
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.4);
+}
+
+
+.package-card.popular {
+  border-color: #ff7048;
+
+  box-shadow:
+    0 0 60px rgba(255,112,72,.12);
+}
+
+
+/* ==========================================
+   POPULAR
+========================================== */
+
+.popular-badge {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  padding: 8px 14px;
+
+  border-radius: 50px;
+
+  background: #ff7048;
+
+  color: white;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   PACKAGE CONTENT
+========================================== */
+
+.package-name {
+  margin-bottom: 20px;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+
+.package-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+.package-price strong {
+  font-size: 48px;
+
+  letter-spacing: -2px;
+}
+
+
+.old-price {
+  color: rgba(255,255,255,.35);
+
+  font-size: 18px;
+
+  text-decoration: line-through;
+}
+
+
+.package-duration {
+  margin-top: 8px;
+
+  color: #ff7048;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+.package-subtitle {
+  margin-top: 5px;
+
+  color: rgba(255,255,255,.5);
+
+  font-size: 13px;
+}
+
+
+.package-divider {
+  height: 1px;
+
+  margin: 30px 0;
+
+  background:
+    rgba(255,255,255,.1);
+}
+
+
+.package-card h3 {
+  margin-bottom: 20px;
+
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.package-card ul {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+
+.package-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: rgba(255,255,255,.72);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+.package-card li span {
+  color: #20d96b;
+
+  font-weight: 900;
+}
+
+
+/* ==========================================
+   TRIAL
+========================================== */
+
+.package-trial {
+  margin-top: 30px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,112,72,.08);
+
+  border:
+    1px solid rgba(255,112,72,.18);
+}
+
+
+.package-trial strong {
+  color: #ff7048;
+
+  font-size: 15px;
+}
+
+
+.package-trial p {
+  margin: 8px 0 0;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.package-button {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding: 16px 22px;
+
+  border-radius: 50px;
+
+  background: #20d96b;
+
+  color: #08150e;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  transition: .3s;
+}
+
+
+.package-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(32,217,107,.2);
+}
+
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+.how-it-works {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+
+  margin: 120px auto 0;
+
+  text-align: center;
+}
+
+
+.how-it-works > span {
+  color: #ff7048;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+
+.how-it-works h2 {
+  margin: 15px 0 50px;
+
+  font-size: clamp(40px, 5vw, 65px);
+
+  letter-spacing: -3px;
+}
+
+
+.steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+
+.steps > div {
+  padding: 25px;
+
+  text-align: left;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,.05);
+}
+
+
+.steps strong {
+  color: #ff7048;
+
+  font-size: 28px;
+}
+
+
+.steps h3 {
+  margin: 15px 0 8px;
+
+  font-size: 17px;
+}
+
+
+.steps p {
+  margin: 0;
+
+  color: rgba(255,255,255,.5);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   NOT FOUND
+========================================== */
+
+.packages-not-found {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.packages-not-found a {
+  color: #ff7048;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .packages-page {
+    padding:
+      130px 5% 80px;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+  }
+
+  .steps {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .packages-page {
+    padding:
+      110px 20px 70px;
+  }
+
+  .packages-header {
+    margin-bottom: 45px;
+  }
+
+  .packages-header h1 {
+    font-size: 52px;
+    letter-spacing: -3px;
+  }
+
+  .packages-header p {
+    font-size: 15px;
+  }
+
+  .package-card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+
+  .package-price strong {
+    font-size: 38px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+}

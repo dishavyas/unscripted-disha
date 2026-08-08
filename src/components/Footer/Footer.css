@@ -1,0 +1,617 @@
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #100820 0%,
+      #0b0617 55%,
+      #07040e 100%
+    );
+
+  color: white;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.footer-background {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.footer-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: .22;
+}
+
+
+.footer-glow-one {
+  width: 500px;
+  height: 500px;
+
+  left: -220px;
+  top: 10%;
+
+  background: #7139a8;
+}
+
+
+.footer-glow-two {
+  width: 450px;
+  height: 450px;
+
+  right: -180px;
+  top: 35%;
+
+  background: #ff7048;
+}
+
+
+.footer-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: .025;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.7) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.7) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.footer-container {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 1450px;
+
+  margin: auto;
+
+  padding:
+    100px 6% 30px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.footer-cta {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding-bottom: 85px;
+}
+
+
+.footer-label {
+  display: block;
+
+  margin-bottom: 22px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 4px;
+
+  color:
+    rgba(255,255,255,.45);
+}
+
+
+.footer-cta h2 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      60px,
+      8vw,
+      120px
+    );
+
+  line-height: .85;
+
+  letter-spacing: -6px;
+
+  font-weight: 900;
+}
+
+
+.footer-cta h2 span {
+  color: #ff7048;
+}
+
+
+.footer-cta p {
+  max-width: 520px;
+
+  margin-top: 30px;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255,255,255,.5);
+}
+
+
+/* =====================================================
+   CTA BUTTON
+===================================================== */
+
+.footer-cta-button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding:
+    18px 25px;
+
+  border-radius: 50px;
+
+  background: #25d366;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+
+.footer-cta-button svg {
+  font-size: 20px;
+}
+
+
+.footer-cta-button:hover {
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 20px 50px
+    rgba(37,211,102,.25);
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.footer-divider {
+  height: 1px;
+
+  width: 100%;
+
+  background:
+    rgba(255,255,255,.1);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.footer-main {
+  display: grid;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1.3fr
+    1.3fr;
+
+  gap: 70px;
+
+  padding:
+    70px 0;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.footer-brand {
+  max-width: 390px;
+}
+
+
+.footer-logo {
+  display: inline-block;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 27px;
+
+  font-weight: 900;
+
+  letter-spacing: -.7px;
+}
+
+
+.footer-logo span {
+  color: #ff7048;
+}
+
+
+.footer-brand p {
+  margin-top: 20px;
+
+  max-width: 360px;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255,255,255,.42);
+}
+
+
+/* =====================================================
+   SOCIALS
+===================================================== */
+
+.footer-socials {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+
+.footer-socials a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color:
+    rgba(255,255,255,.7);
+
+  background:
+    rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
+  transition: .3s;
+}
+
+
+.footer-socials a:hover {
+  color: white;
+
+  background: #ff7048;
+
+  border-color: #ff7048;
+
+  transform:
+    translateY(-4px);
+}
+
+
+.footer-socials svg {
+  font-size: 19px;
+}
+
+
+/* =====================================================
+   COLUMNS
+===================================================== */
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+.footer-column h3 {
+  margin:
+    0 0 25px;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  color:
+    rgba(255,255,255,.45);
+}
+
+
+.footer-column a {
+  margin-bottom: 14px;
+
+  color:
+    rgba(255,255,255,.65);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: .25s;
+}
+
+
+.footer-column a:hover {
+  color: #ff7048;
+
+  transform:
+    translateX(4px);
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.footer-contact > span {
+  max-width: 180px;
+
+  margin-bottom: 22px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255,255,255,.45);
+}
+
+
+.footer-whatsapp {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px !important;
+
+  margin-top: 3px;
+
+  padding:
+    10px 15px;
+
+  border:
+    1px solid
+    rgba(37,211,102,.3);
+
+  border-radius: 30px;
+
+  color: #25d366 !important;
+
+  background:
+    rgba(37,211,102,.06);
+}
+
+
+.footer-whatsapp:hover {
+  color: white !important;
+
+  background:
+    #25d366;
+
+  border-color:
+    #25d366;
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.footer-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+  font-size: 11px;
+
+  color:
+    rgba(255,255,255,.3);
+}
+
+
+.footer-made {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+.heart {
+  color: #ff7048;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .footer-container {
+    padding:
+      90px 5% 30px;
+  }
+
+
+  .footer-main {
+    grid-template-columns:
+      1.5fr
+      1fr
+      1fr;
+
+    gap: 45px;
+  }
+
+
+  .footer-brand {
+    grid-column: span 3;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .footer-container {
+    padding:
+      75px 20px 25px;
+  }
+
+
+  .footer-cta {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 35px;
+
+    padding-bottom: 60px;
+  }
+
+
+  .footer-cta h2 {
+    font-size: 58px;
+
+    letter-spacing: -3px;
+  }
+
+
+  .footer-cta p {
+    font-size: 14px;
+
+    margin-top: 25px;
+  }
+
+
+  .footer-cta-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .footer-main {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      45px 25px;
+
+    padding:
+      55px 0;
+  }
+
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+
+  .footer-column h3 {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .footer-column a {
+    font-size: 12px;
+  }
+
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 1.6;
+  }
+
+}

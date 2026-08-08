@@ -1,0 +1,189 @@
+/* =====================================================
+   WATERFALL BACKGROUND
+===================================================== */
+
+.waterfall-background {
+  position: absolute;
+
+  /* Starts near the bottom of Hero */
+  top: 650px;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 1900px;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   WATERFALL IMAGE
+===================================================== */
+
+.waterfall-image {
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(850px, 65vw);
+
+  height: auto;
+
+  max-height: 1800px;
+
+  object-fit: contain;
+
+  opacity: 0.42;
+
+  mix-blend-mode: screen;
+
+  filter:
+    saturate(1.15)
+    brightness(0.9)
+    drop-shadow(0 0 60px rgba(170, 130, 255, 0.35));
+
+  animation: waterfallFloat 8s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   SOFT GLOW BEHIND WATERFALL
+===================================================== */
+
+.waterfall-glow {
+  position: absolute;
+
+  top: 100px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 700px;
+
+  height: 1000px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(160, 120, 255, 0.25) 0%,
+      rgba(255, 120, 80, 0.12) 35%,
+      transparent 70%
+    );
+
+  filter: blur(80px);
+}
+
+
+/* =====================================================
+   FADE INTO SERVICES BACKGROUND
+===================================================== */
+
+.waterfall-fade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      transparent 45%,
+
+      rgba(13, 7, 27, 0.15) 60%,
+
+      rgba(13, 7, 27, 0.65) 78%,
+
+      #0d071b 100%
+    );
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes waterfallFloat {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      translateY(15px)
+      scale(1.015);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .waterfall-background {
+    top: 650px;
+    height: 1600px;
+  }
+
+  .waterfall-image {
+    width: 750px;
+    max-width: 85vw;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .waterfall-background {
+    top: 700px;
+    height: 1400px;
+  }
+
+  .waterfall-image {
+    width: 600px;
+    max-width: none;
+
+    opacity: 0.28;
+  }
+
+  .waterfall-glow {
+    width: 500px;
+  }
+
+}
