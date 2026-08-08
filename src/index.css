@@ -1,29 +1,239 @@
-html,
-body,
-#root {
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
+
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
   background: #0d071b;
   color: white;
+
+  overflow-x: hidden;
+
+  font-family: inherit;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* =========================================
+   ROOT
+========================================= */
 
 #root {
   position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
   overflow-x: hidden;
 }
 
+/* =========================================
+   APP
+========================================= */
+
 .app {
   position: relative;
+
+  width: 100%;
   min-height: 100vh;
+
   background: #0d071b;
+
+  overflow-x: hidden;
 }
+
+/* =========================================
+   WEBSITE CONTENT
+========================================= */
 
 .site-content {
   position: relative;
+
+  width: 100%;
+
   z-index: 10;
+
+  overflow-x: hidden;
+}
+
+/* =========================================
+   MEDIA
+========================================= */
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* Prevent media from creating horizontal scroll */
+
+img,
+video {
+  display: block;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: inherit;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   MOBILE SAFETY
+========================================= */
+
+@media (max-width: 600px) {
+
+  html,
+  body,
+  #root,
+  .app,
+  .site-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+}
+/* =========================================
+   CINEMATIC CTA
+========================================= */
+
+.cinematic-cta {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 100px 5%;
+  overflow: hidden;
+}
+
+.cinematic-cta-content {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cinematic-cta h2 {
+  max-width: 100%;
+  margin: 20px 0 35px;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 0.95;
+  letter-spacing: -4px;
+  overflow-wrap: break-word;
+}
+
+.cinematic-cta h2 span {
+  color: #ff7048;
+}
+
+.cinematic-cta p {
+  max-width: 650px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.6);
+}
+
+.cinematic-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  width: 100%;
+  max-width: 650px;
+
+  min-height: 72px;
+
+  padding: 18px 30px;
+
+  border-radius: 50px;
+
+  background: #ff7048;
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  margin-top: 40px;
+
+  transition: .3s;
+}
+
+.cinematic-cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(255,112,72,.3);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .cinematic-cta {
+    width: 100%;
+    padding: 80px 36px;
+  }
+
+  .cinematic-cta h2 {
+    font-size: 48px;
+    line-height: .98;
+    letter-spacing: -2px;
+  }
+
+  .cinematic-cta p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cinematic-cta-button {
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 64px;
+
+    padding: 16px 20px;
+
+    font-size: 17px;
+
+    gap: 12px;
+  }
+
 }

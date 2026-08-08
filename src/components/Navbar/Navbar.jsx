@@ -157,15 +157,19 @@ export default function Navbar() {
           </Box>
 
           {/* Mobile Menu Button */}
-          <IconButton
-            sx={{
-              display: { xs: "flex", md: "none" },
-              color: "#222",
-            }}
-            onClick={() => setOpen(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+       <IconButton
+  sx={{
+    display: { xs: "flex", md: "none" },
+    color: "#ffffff",
+
+    "&:hover": {
+      background: "rgba(255,255,255,.1)",
+    },
+  }}
+  onClick={() => setOpen(true)}
+>
+  <MenuIcon />
+</IconButton>
         </Toolbar>
       </AppBar>
 
