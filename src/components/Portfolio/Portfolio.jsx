@@ -87,8 +87,8 @@ export default function Portfolio() {
     activeFilter === "All"
       ? reels
       : reels.filter(
-          (reel) => reel.category === activeFilter
-        );
+        (reel) => reel.category === activeFilter
+      );
 
   // ===================================================
   // OPEN VIDEO
@@ -268,13 +268,14 @@ export default function Portfolio() {
 
                   <video
                     src={reel.video}
-                    muted
+                    controls
                     loop
                     playsInline
                     preload="metadata"
+                    className="portfolio-reel-video"
 
                     onMouseEnter={(event) => {
-                      event.currentTarget.play().catch(() => {});
+                      event.currentTarget.play().catch(() => { });
                     }}
 
                     onMouseLeave={(event) => {
@@ -471,7 +472,6 @@ export default function Portfolio() {
 
               autoPlay
 
-              muted
 
               controls
 

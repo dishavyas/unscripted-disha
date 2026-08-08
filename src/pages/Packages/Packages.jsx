@@ -1,5 +1,6 @@
 import "./Packages.css";
 import { Link, useParams } from "react-router-dom";
+import { packageOrderLink } from "../../utils/whatsapp";
 
 const packages = {
   reels: {
@@ -392,12 +393,19 @@ export default function Packages() {
 
 
               <a
-                href="#contact"
-                className="package-button"
-              >
-                Choose {plan.name}
-                <span>↗</span>
-              </a>
+  href={packageOrderLink(
+    service.title,
+    plan.name,
+    plan.price,
+    plan.duration
+  )}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="package-button"
+>
+  Choose {plan.name}
+  <span>↗</span>
+</a>
 
             </article>
 
