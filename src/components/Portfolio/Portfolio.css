@@ -900,3 +900,337 @@
   }
 
 }
+/* =========================================================
+   PORTFOLIO PLAY BUTTON
+========================================================= */
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  padding: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+
+.portfolio-play {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 112, 72, 0.92);
+
+  color: white;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+
+.portfolio-play svg {
+  font-size: 32px;
+}
+
+
+.portfolio-overlay:hover .portfolio-play {
+  transform: scale(1.12);
+
+  background: #ff7048;
+}
+
+
+/* =========================================================
+   PORTFOLIO ARROW BUTTON
+========================================================= */
+
+.portfolio-arrow {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.portfolio-arrow:hover {
+  background: #ff7048;
+
+  transform:
+    translateY(-3px)
+    rotate(45deg);
+}
+
+
+/* =========================================================
+   FULL SCREEN VIDEO MODAL
+========================================================= */
+
+.portfolio-video-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    rgba(5, 3, 15, 0.94);
+
+  backdrop-filter: blur(18px);
+
+  animation:
+    portfolioModalIn
+    0.3s ease;
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+.portfolio-modal-content {
+  position: relative;
+
+  width: min(420px, 90vw);
+
+  max-height: 92vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   FULLSCREEN VIDEO
+========================================================= */
+
+.portfolio-fullscreen-video {
+  width: 100%;
+
+  max-height: 82vh;
+
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 18px;
+
+  background: #000;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.portfolio-modal-close {
+  position: absolute;
+
+  top: 25px;
+  right: 30px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.portfolio-modal-close svg {
+  font-size: 28px;
+}
+
+
+.portfolio-modal-close:hover {
+  background: #ff7048;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL INFO
+========================================================= */
+
+.portfolio-modal-info {
+  width: 100%;
+
+  padding-top: 18px;
+
+  color: white;
+}
+
+
+.portfolio-modal-info span {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #ff7048;
+}
+
+
+.portfolio-modal-info h3 {
+  margin: 6px 0 3px;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+
+.portfolio-modal-info p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   MODAL ANIMATION
+========================================================= */
+
+@keyframes portfolioModalIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .portfolio-video-modal {
+    padding: 15px;
+  }
+
+
+  .portfolio-modal-content {
+    width: min(92vw, 380px);
+
+    max-height: 90vh;
+  }
+
+
+  .portfolio-fullscreen-video {
+    max-height: 75vh;
+
+    border-radius: 14px;
+  }
+
+
+  .portfolio-modal-close {
+    top: 15px;
+    right: 15px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+
+  .portfolio-modal-info h3 {
+    font-size: 19px;
+  }
+
+
+  .portfolio-play {
+    width: 58px;
+    height: 58px;
+  }
+
+
+  .portfolio-play svg {
+    font-size: 27px;
+  }
+
+}

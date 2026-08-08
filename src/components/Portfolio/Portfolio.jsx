@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 import "./Portfolio.css";
-
 
 // =====================================================
 // REELS
 // =====================================================
 
 const reels = [
-
   {
     id: 1,
     title: "Ramayan Mystery",
@@ -52,300 +51,467 @@ const reels = [
     video: "/reels/reel5.mp4",
   },
 
-//   {
-//     id: 6,
-//     title: "Mahabharata Mystery",
-//     category: "Global",
-//     channel: "Unscripted Disha Global",
-//     video: "/reels/reel6.mp4",
-//   },
+  // Uncomment when reel6 is available
 
+  // {
+  //   id: 6,
+  //   title: "Mahabharata Mystery",
+  //   category: "Global",
+  //   channel: "Unscripted Disha Global",
+  //   video: "/reels/reel6.mp4",
+  // },
 ];
-
 
 // =====================================================
 // COMPONENT
 // =====================================================
 
 export default function Portfolio() {
-
   const [activeFilter, setActiveFilter] = useState("All");
+
+  // Currently selected video
+  const [selectedReel, setSelectedReel] = useState(null);
+
+  // ===================================================
+  // FILTERS
+  // ===================================================
 
   const filters = [
     "All",
     "Hindi",
     "Global",
+    "Promotion",
   ];
-
 
   const filteredReels =
     activeFilter === "All"
       ? reels
       : reels.filter(
-          (reel) =>
-            reel.category === activeFilter
+          (reel) => reel.category === activeFilter
         );
 
+  // ===================================================
+  // OPEN VIDEO
+  // ===================================================
+
+  const openVideo = (reel) => {
+    setSelectedReel(reel);
+  };
+
+  // ===================================================
+  // CLOSE VIDEO
+  // ===================================================
+
+  const closeVideo = () => {
+    setSelectedReel(null);
+  };
+
+  // ===================================================
+  // ESC KEY
+  // ===================================================
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeVideo();
+      }
+    };
+
+    window.addEventListener(
+      "keydown",
+      handleEscape
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleEscape
+      );
+    };
+  }, []);
+
+  // ===================================================
+  // LOCK BODY SCROLL WHEN MODAL OPEN
+  // ===================================================
+
+  useEffect(() => {
+    if (selectedReel) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedReel]);
 
   return (
-
-    <section
-      className="portfolio-section"
-      id="portfolio"
-    >
-
+    <>
       {/* =================================================
-          BACKGROUND
+          PORTFOLIO SECTION
       ================================================= */}
 
-      <div className="portfolio-background">
+      <section
+        className="portfolio-section"
+        id="portfolio"
+      >
 
-        <div className="portfolio-glow glow-left"></div>
+        {/* =================================================
+            BACKGROUND
+        ================================================= */}
 
-        <div className="portfolio-glow glow-right"></div>
+        <div className="portfolio-background">
 
-        <div className="portfolio-grid-lines"></div>
+          <div className="portfolio-glow glow-left"></div>
 
-      </div>
+          <div className="portfolio-glow glow-right"></div>
 
+          <div className="portfolio-grid-lines"></div>
 
-      {/* =================================================
-          MAIN CONTAINER
-      ================================================= */}
-
-      <div className="portfolio-container">
+        </div>
 
 
         {/* =================================================
-            HEADING
+            MAIN CONTAINER
         ================================================= */}
 
-        <div className="portfolio-heading">
+        <div className="portfolio-container">
 
-          <div className="portfolio-label">
 
-            <span></span>
+          {/* =================================================
+              HEADING
+          ================================================= */}
 
-            SELECTED WORK
+          <div className="portfolio-heading">
+
+            <div className="portfolio-label">
+
+              <span></span>
+
+              SELECTED WORK
+
+            </div>
+
+
+            <h2>
+
+              Stories we've
+
+              <br />
+
+              <span>created.</span>
+
+            </h2>
+
+
+            <p>
+
+              From mythology and spirituality to
+              cinematic global stories — explore
+              some of our latest work.
+
+            </p>
 
           </div>
 
 
-          <h2>
+          {/* =================================================
+              FILTERS
+          ================================================= */}
 
-            Stories we've
+          <div className="portfolio-filters">
 
-            <br />
+            {filters.map((filter) => (
 
-            <span>created.</span>
+              <button
+                key={filter}
 
-          </h2>
+                className={
+                  activeFilter === filter
+                    ? "active"
+                    : ""
+                }
 
+                onClick={() =>
+                  setActiveFilter(filter)
+                }
+              >
 
-          <p>
+                {filter}
 
-            From mythology and spirituality to
-            cinematic global stories — explore
-            some of our latest work.
+              </button>
 
-          </p>
+            ))}
 
-        </div>
-
-
-        {/* =================================================
-            FILTERS
-        ================================================= */}
-
-        <div className="portfolio-filters">
-
-          {filters.map((filter) => (
-
-            <button
-
-              key={filter}
-
-              className={
-                activeFilter === filter
-                  ? "active"
-                  : ""
-              }
-
-              onClick={() =>
-                setActiveFilter(filter)
-              }
-
-            >
-
-              {filter}
-
-            </button>
-
-          ))}
-
-        </div>
+          </div>
 
 
-        {/* =================================================
-            REELS
-        ================================================= */}
+          {/* =================================================
+              REELS
+          ================================================= */}
 
-        <div className="portfolio-grid">
+          <div className="portfolio-grid">
 
-          {filteredReels.map((reel) => (
+            {filteredReels.map((reel) => (
 
-            <article
-              className="portfolio-card"
-              key={reel.id}
-            >
+              <article
+                className="portfolio-card"
+                key={reel.id}
+              >
 
+                {/* =========================================
+                    VIDEO
+                ========================================= */}
 
-              {/* VIDEO */}
+                <div className="portfolio-video">
 
-              <div className="portfolio-video">
+                  <video
+                    src={reel.video}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
 
-                <video
+                    onMouseEnter={(event) => {
+                      event.currentTarget.play().catch(() => {});
+                    }}
 
-                  src={reel.video}
+                    onMouseLeave={(event) => {
+                      event.currentTarget.pause();
 
-                  muted
-
-                  loop
-
-                  playsInline
-
-                  preload="metadata"
-
-                  onMouseEnter={(event) => {
-
-                    event.currentTarget.play();
-
-                  }}
-
-                  onMouseLeave={(event) => {
-
-                    event.currentTarget.pause();
-
-                    event.currentTarget.currentTime = 0;
-
-                  }}
-
-                />
+                      event.currentTarget.currentTime = 0;
+                    }}
+                  />
 
 
-                {/* Overlay */}
+                  {/* =====================================
+                      CLICKABLE PLAY OVERLAY
+                  ===================================== */}
 
-                <div className="portfolio-overlay">
+                  <button
+                    className="portfolio-overlay"
+                    onClick={() =>
+                      openVideo(reel)
+                    }
+                    aria-label={`Play ${reel.title}`}
+                  >
 
-                  <div className="portfolio-play">
+                    <div className="portfolio-play">
 
-                    <PlayArrowRoundedIcon />
+                      <PlayArrowRoundedIcon />
+
+                    </div>
+
+                  </button>
+
+
+                  {/* =====================================
+                      NUMBER
+                  ===================================== */}
+
+                  <span className="portfolio-number">
+
+                    {String(reel.id).padStart(
+                      2,
+                      "0"
+                    )}
+
+                  </span>
+
+
+                  {/* =====================================
+                      CATEGORY
+                  ===================================== */}
+
+                  <span className="portfolio-category">
+
+                    {reel.category}
+
+                  </span>
+
+                </div>
+
+
+                {/* =========================================
+                    INFO
+                ========================================= */}
+
+                <div className="portfolio-info">
+
+                  <div>
+
+                    <h3>
+                      {reel.title}
+                    </h3>
+
+                    <p>
+                      {reel.channel}
+                    </p>
 
                   </div>
 
-                </div>
 
+                  {/* =====================================
+                      ARROW
+                  ===================================== */}
 
-                {/* Number */}
+                  <button
+                    className="portfolio-arrow"
+                    onClick={() =>
+                      openVideo(reel)
+                    }
+                    aria-label={`Open ${reel.title}`}
+                  >
 
-                <span className="portfolio-number">
+                    <ArrowOutwardRoundedIcon />
 
-                  {String(reel.id).padStart(2, "0")}
-
-                </span>
-
-
-                {/* Category */}
-
-                <span className="portfolio-category">
-
-                  {reel.category}
-
-                </span>
-
-              </div>
-
-
-              {/* INFO */}
-
-              <div className="portfolio-info">
-
-                <div>
-
-                  <h3>
-                    {reel.title}
-                  </h3>
-
-                  <p>
-                    {reel.channel}
-                  </p>
+                  </button>
 
                 </div>
 
+              </article>
 
-                <div className="portfolio-arrow">
-
-                  <ArrowOutwardRoundedIcon />
-
-                </div>
-
-              </div>
-
-            </article>
-
-          ))}
-
-        </div>
-
-
-        {/* =================================================
-            CTA
-        ================================================= */}
-
-        <div className="portfolio-cta">
-
-          <div>
-
-            <span>
-              HAVE A STORY?
-            </span>
-
-            <h3>
-
-              Let's make it
-
-              <em>
-                cinematic.
-              </em>
-
-            </h3>
+            ))}
 
           </div>
 
 
-          <a
+          {/* =================================================
+              CTA
+          ================================================= */}
 
-            href="https://wa.me/916267481715?text=Hi%20Unscripted%20Disha!%20I%20want%20to%20create%20a%20cinematic%20reel."
+          <div className="portfolio-cta">
 
-            target="_blank"
+            <div>
 
-            rel="noopener noreferrer"
+              <span>
+                HAVE A STORY?
+              </span>
 
-          >
+              <h3>
 
-            Start a Project
+                Let's make it
 
-            <ArrowOutwardRoundedIcon />
+                <em>
+                  cinematic.
+                </em>
 
-          </a>
+              </h3>
+
+            </div>
+
+
+            <a
+              href="https://wa.me/916267481715?text=Hi%20Unscripted%20Disha!%20I%20want%20to%20create%20a%20cinematic%20reel."
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+            >
+
+              Start a Project
+
+              <ArrowOutwardRoundedIcon />
+
+            </a>
+
+          </div>
 
         </div>
 
+      </section>
 
-      </div>
 
-    </section>
+      {/* =====================================================
+          FULL SCREEN VIDEO MODAL
+      ===================================================== */}
 
+      {selectedReel && (
+
+        <div
+          className="portfolio-video-modal"
+
+          onClick={closeVideo}
+        >
+
+          {/* ===============================================
+              CLOSE BUTTON
+          =============================================== */}
+
+          <button
+            className="portfolio-modal-close"
+
+            onClick={closeVideo}
+
+            aria-label="Close video"
+          >
+
+            <CloseRoundedIcon />
+
+          </button>
+
+
+          {/* ===============================================
+              VIDEO CONTAINER
+          =============================================== */}
+
+          <div
+            className="portfolio-modal-content"
+
+            onClick={(event) =>
+              event.stopPropagation()
+            }
+          >
+
+            <video
+              key={selectedReel.video}
+
+              src={selectedReel.video}
+
+              autoPlay
+
+              muted
+
+              controls
+
+              playsInline
+
+              preload="auto"
+
+              className="portfolio-fullscreen-video"
+            />
+
+
+            {/* ===========================================
+                VIDEO INFO
+            =========================================== */}
+
+            <div className="portfolio-modal-info">
+
+              <div>
+
+                <span>
+                  {selectedReel.category}
+                </span>
+
+                <h3>
+                  {selectedReel.title}
+                </h3>
+
+                <p>
+                  {selectedReel.channel}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+    </>
   );
-
 }

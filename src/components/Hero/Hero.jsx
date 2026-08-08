@@ -275,15 +275,15 @@ export default function Hero() {
           <div className="phone-notch"></div>
 
 
-          <video
-            key={reels[currentReel].video}
-            className="hero-reel-video"
-            src={reels[currentReel].video}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+       <video
+  className="hero-reel-video"
+  src={reels[currentReel].video}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+/>
 
 
           {/* Phone Overlay */}
